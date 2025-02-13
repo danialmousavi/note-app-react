@@ -40,7 +40,8 @@ export default class NoteApp extends Component {
             }
             this.setState(prevState=>({
                 notes:[...prevState.notes,newNote],
-                noteTitle:''
+                noteTitle:'',
+                inputColor:'#fff'
             }))
         }
         

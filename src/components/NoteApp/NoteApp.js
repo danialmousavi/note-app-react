@@ -51,6 +51,11 @@ export default class NoteApp extends Component {
     cleanInput(){
         this.setState({noteTitle:''})
     }
+    removeNote(id){
+        let newNote=this.state.notes.filter(note=>note.id!==id);
+        this.setState({notes:newNote})
+        
+    }
     render() {
         return (
             <>
@@ -87,7 +92,7 @@ export default class NoteApp extends Component {
                                         <div className="row">
                                             <div id='listed' className="col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11 p-3 card-columns">
                                                 {this.state.notes.map(note=>(
-                                                <Note key={note.id} {...note}/>
+                                                <Note key={note.id} {...note} onRemove={(e)=>this.removeNote(e)}/>
                                                 ))}
 
                                             </div>
